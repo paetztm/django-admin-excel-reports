@@ -1,0 +1,32 @@
+{% extends 'admin_tools/reports/report_base.html' %}
+
+{% block report %}
+    <form action="{% url 'reports.submit' %}" method="post" accept-charset="iso-8859-1">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        {% csrf_token %}
+                        <input type="hidden" name="report_name" value="invoice_report">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Begin Date:</td>
+                            <td><input name="begin_date" type="text" class="vDateField"> </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>End Date:</td>
+                            <td><input name="end_date" type="text" class="vDateField"> </td>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4"><input class="default" value="Generate Report" type="submit"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
